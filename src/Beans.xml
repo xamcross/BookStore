@@ -22,16 +22,12 @@
     </bean>
     
     <bean id="shoppingCart" class="xam.cross.ShoppingCart">
-	    <constructor-arg index="0">
-		    <list>
-		    	<value></value>
-		    </list>
-	    </constructor-arg>
+	    <constructor-arg index="0" ref="booksInCart"/>
     </bean>
     
     <bean id="booksInCart" class="java.util.ArrayList">
     	<constructor-arg>
-    		<list>
+    		<list value-type="xam.cross.Book">
     			<ref bean="book" />
     			<ref bean="book1" />
     			<ref bean="book2" />
