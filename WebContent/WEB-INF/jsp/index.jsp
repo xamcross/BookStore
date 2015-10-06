@@ -1,6 +1,6 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="tag" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="tag" uri="http://www.springframework.org/tags"%>
 <%@page import="java.util.*"%>
 
 <html>
@@ -14,10 +14,10 @@
 	<form:form method="GET" action="/HelloWeb/staticPage">
 		<table>
 			<c:forEach items="${titles }" var="title">
-			<tr>
-				<td>${title}</td>
-				<td><input type="submit" value="Add to cart" /></td>
-			</tr>
+				<tr>
+					<td>${title}</td>
+					<td><input type="submit" value="Add to cart" /></td>
+				</tr>
 			</c:forEach>
 
 		</table>
