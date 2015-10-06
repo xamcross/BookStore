@@ -26,6 +26,7 @@
 		<hr/>
 	</c:forEach>
 	<a href="messagePost.htm">Post New Message</a>
+	<a href="<c:url value="/logout"/>">Logout</a>
 </body>
 
 </html>

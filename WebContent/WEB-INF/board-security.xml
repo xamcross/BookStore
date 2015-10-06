@@ -12,6 +12,7 @@
 		<intercept-url pattern="/messageDelete*" access="hasRole('ROLE_ADMIN')" />
 		<csrf disabled="true"/>
 		<form-login login-page="/login" default-target-url="/" login-processing-url="/login" authentication-failure-url="/login?error=true"/>
+		<logout invalidate-session="true" logout-url="/logout" logout-success-url="/messageList"/>
 	</http>
 
 	<authentication-manager>
