@@ -13,6 +13,7 @@
 		<csrf disabled="true"/>
 		<form-login login-page="/login" default-target-url="/" login-processing-url="/login" authentication-failure-url="/login?error=true"/>
 		<logout invalidate-session="true" logout-url="/logout" logout-success-url="/messageList"/>
+		<remember-me remember-me-parameter="_spring_security_remember_me"/>
 	</http>
 
 	<authentication-manager>
