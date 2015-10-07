@@ -24,6 +24,8 @@
 	  <param-value>
 	  	/WEB-INF/board-service.xml
 	  	/WEB-INF/board-security.xml
+	  	/WEB-INF/book-creation.xml
+	  	/WEB-INF/user-creation.xml
 	  </param-value>
   	</context-param>
   

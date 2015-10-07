@@ -5,27 +5,38 @@
 <title>Login Page</title>
 </head>
 <body>
+	<div align="center">
+		<table>
+			<tr>
+				<th>Usernames</th>
+			</tr>
+			<c:forEach items="${users}" var="user">
+				<tr>
+					<td>${user.username}</td>
+				</tr>
+			</c:forEach>
+		</table>
+		<form action="<c:url value="/login"/>" method="POST">
+			<table>
+				<tr>
+					<th align="left">Username</th>
+					<th align="left">Password</th>
+				</tr>
+				<tr>
+					<td><input type="text" name="username" /></td>
+					<td><input type="password" name="password" /></td>
+				</tr>
+				<tr>
+					<td align="left">Remember me <input type="checkbox"
+						name="_spring_security_remember_me" /></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center"><input type="submit"
+						value="Login" /> <input type="reset" value="Reset" /></td>
+				</tr>
+			</table>
 
-<form action="<c:url value="/login"/>" method="POST">
-	<table>
-		<tr>
-		<td align="right">Username</td>
-		<td><input type="text" name="username"/></td>
-		</tr>
-		<tr>
-		<td align="right">Password</td>
-		<td><input type="password" name="password"/></td>
-		</tr>
-		<tr>
-		<td align="right">Remember me</td>
-		<td><input type="checkbox" name="_spring_security_remember_me"/></td>
-		</tr>
-		<tr>
-		<td colspan="2" align="right"><input type="submit" value="Login"/><input type="reset" value="Reset"/>
-		</td>
-		</tr>
-	</table>
-
-</form>
+		</form>
+	</div>
 </body>
 </html>

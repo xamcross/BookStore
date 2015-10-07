@@ -2,16 +2,25 @@ package xam.cross;
 
 public class Book {
 
+	public static Integer totalBooksCreated;
+	
+	static {
+		if (totalBooksCreated == null)
+			totalBooksCreated = 0;
+	}
+	
+	private Integer id;
+	
 	private String title;
-	private Author author;
+	private String authors;
 	private Double price;
 	
-	public Author getAuthor() {
-		return author;
+	public String getAuthors() {
+		return authors;
 	}
 
-	public void setAuthor(Author author) {
-		this.author = author;
+	public void setAuthors(String authors) {
+		this.authors = authors;
 	}
 
 	public Double getPrice() {
@@ -22,9 +31,20 @@ public class Book {
 		this.price = price;
 	}
 
-	public Book(Author author, String title){
-		this.author = author;
+	public Book(){
+		totalBooksCreated++;
+		this.id = totalBooksCreated;
+	}
+	
+	public Book(String authors, String title){
+		this.authors = authors;
 		this.title = title;
+		totalBooksCreated++;
+		this.id = totalBooksCreated;
+	}
+	
+	public Integer getId(){
+		return this.id;
 	}
 	
 	public String getTitle() {

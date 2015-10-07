@@ -11,38 +11,4 @@
 	 http://www.springframework.org/schema/context
 	 http://www.springframework.org/schema/context/spring-context-3.0.xsd
 	 http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
-	
-	<bean id="author" class="xam.cross.Author">
-    <property name="fullName" value="Conan Doyle"/>
-    </bean>
-    
-    <bean id="book" class="xam.cross.Book">
-    <constructor-arg index="0" ref="author"/>
-    <constructor-arg index="1" value="Sherlock Holmes and Doctor Watson"/>
-    </bean>
-    
-    <bean id="shoppingCart" class="xam.cross.ShoppingCart">
-	    <constructor-arg index="0" ref="booksInCart"/>
-    </bean>
-    
-    <bean id="booksInCart" class="java.util.ArrayList">
-    	<constructor-arg>
-    		<list value-type="xam.cross.Book">
-    			<ref bean="book" />
-    			<ref bean="book1" />
-    			<ref bean="book2" />
-    		</list>
-    	</constructor-arg>
-    </bean>
-    
-    <bean id="book1" class="xam.cross.Book">
-    <constructor-arg index="0" ref="author"></constructor-arg>
-    <constructor-arg index="1" value="Harry Potter"/>
-    </bean>
-    
-    <bean id="book2" class="xam.cross.Book">
-    <constructor-arg index="0" ref="author"></constructor-arg>
-    <constructor-arg index="1" value="Mobby Dick"/>
-    </bean>
-    
 </beans>

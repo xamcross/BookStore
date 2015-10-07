@@ -10,18 +10,20 @@
 		<intercept-url pattern="/messageList*" access="hasAnyRole('ROLE_USER','ROLE_ANONYMOUS')" />
 		<intercept-url pattern="/messagePost*" access="hasRole('ROLE_USER')" />
 		<intercept-url pattern="/messageDelete*" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/bookCreation*" access="hasRole('ROLE_USER')"/>
 		<csrf disabled="true"/>
 		<form-login login-page="/login" default-target-url="/" login-processing-url="/login" authentication-failure-url="/login?error=true"/>
 		<logout invalidate-session="true" logout-url="/logout" logout-success-url="/messageList"/>
 		<remember-me remember-me-parameter="_spring_security_remember_me"/>
 	</http>
 
-	<authentication-manager>
-		<authentication-provider>
+	<authentication-manager >
+		<authentication-provider >
 			<user-service>
 				<user name="admin" authorities="ROLE_ADMIN,ROLE_USER" password="secret" />
 				<user name="user1" authorities="ROLE_USER" password="1111" />
 			</user-service>
+			
 		</authentication-provider>
 	</authentication-manager>
 
