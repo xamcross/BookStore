@@ -7,10 +7,10 @@
 	http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<http>
-		<intercept-url pattern="/messageList*" access="hasAnyRole('ROLE_USER','ROLE_ANONYMOUS')" />
-		<intercept-url pattern="/messagePost*" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/messageList*" access="hasAnyRole('ROLE_USER','ROLE_ANONYMOUS', 'ROLE_ADMIN')" />
+		<intercept-url pattern="/messagePost*" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
 		<intercept-url pattern="/messageDelete*" access="hasRole('ROLE_ADMIN')" />
-		<intercept-url pattern="/bookCreation*" access="hasRole('ROLE_USER')"/>
+		<intercept-url pattern="/bookCreation*" access="hasRole('ROLE_ADMIN')"/>
 		<csrf disabled="true"/>
 		<form-login login-page="/login" default-target-url="/" login-processing-url="/login" authentication-failure-url="/login?error=true"/>
 		<logout invalidate-session="true" logout-url="/logout" logout-success-url="/messageList"/>

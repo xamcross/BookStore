@@ -35,7 +35,7 @@ public class BookCreationController {
 		}
 		else {
 			bookShop.addNewBook(book);
-			return "redirect:messageList";
+			return "redirect:bookShop";
 		}
 		
 	}

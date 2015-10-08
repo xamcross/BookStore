@@ -1,15 +1,9 @@
 package xam.cross.web;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,15 +35,11 @@ public class UserCreationController {
 	public String userCreationForm(HttpServletRequest request, Model model){
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-		authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-		BookShopUser user = new BookShopUser(email, password, authorities);
+		
+		BookShopUser user = new BookShopUser(email, password, userHandler.setAuthorities("ROLE_USER"));
 		userHandler.addUser(user);
-		List<UserDetails> userDetails = new ArrayList<>();
-		userDetails.addAll(userHandler.getUsers());
-		InMemoryUserDetailsManager userDetailsManager = new InMemoryUserDetailsManager(userDetails);
-		provider.setUserDetailsService(userDetailsManager);
-		if (userDetailsManager.userExists(user.getUsername())){
+
+		if (userHandler.getUserByEmail(user.getUsername())!=null){
 			model.addAttribute("newUser", user);
 		}
 		return "bookShop";

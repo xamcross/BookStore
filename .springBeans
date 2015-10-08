@@ -11,7 +11,6 @@
 		<config>WebContent/WEB-INF/BlackBooks-servlet.xml</config>
 		<config>WebContent/WEB-INF/board-security.xml</config>
 		<config>WebContent/WEB-INF/book-creation.xml</config>
-		<config>WebContent/WEB-INF/user-creation.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
